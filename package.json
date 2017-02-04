@@ -1,0 +1,15 @@
+{
+  "name": "digitalocean-node",
+  "version": "1.0.0",
+  "description": "testing deployment to digital ocean",
+  "main": "index.js",
+  "repository": {},
+  "author": "Denny Christochowitz",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.14.1"
+  }
+}
