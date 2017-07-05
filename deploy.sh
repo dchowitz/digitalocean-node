@@ -1,7 +1,13 @@
 #!/bin/bash
 # deploys to digital ocean
 
-eval $(docker-machine env do-docker)
+set -e
+
+dockerHost=$1
+echo "going to deploy to $dockerHost"
+
+dockerEnv="$(docker-machine env $dockerHost)"
+eval $dockerEnv
 
 name=${PWD##*/}
 image=$name:dev
@@ -23,5 +29,8 @@ else
 fi
 
 docker build -t $image .
-docker run -d -p 80:3000 --name $container $image
+docker run -d -p 3000:3000 --name $container $image
 docker ps
+
+# unset docker host
+eval $(docker-machine env -u)
