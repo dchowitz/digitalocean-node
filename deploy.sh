@@ -1,7 +1,7 @@
 #!/bin/bash
 # deploys to digital ocean
 
-eval $(docker-machine env digitalocean-1)
+eval $(docker-machine env do-docker)
 
 name=${PWD##*/}
 image=$name:dev
